@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxeyxqqhu4tfl"]
+
+[ext_resource type="Script" uid="uid://c0nhpnegc6agb" path="res://lessons/chest.gd" id="1_r1ws2"]
+
+[node name="Chess" type="Area2D"]
+script = ExtResource("1_r1ws2")
