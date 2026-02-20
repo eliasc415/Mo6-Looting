@@ -11,6 +11,7 @@ func play_floating_animation() -> void:
 	tween.set_loops()
 	tween.set_trans(Tween.TRANS_SINE)
 
+
 	var sprite_2d := get_node("Sprite2D")
 	var position_offset := Vector2(0.0, 4.0)
 	var duration = randf_range(0.8, 1.2)
@@ -18,4 +19,12 @@ func play_floating_animation() -> void:
 	tween.tween_property(sprite_2d, "position", position_offset, duration)
 	tween.tween_property(sprite_2d, "position",  -1.0 * position_offset, duration)
 
+func _input_event(viewport: Viewport, event: InputEvent, shape_index: int):
+	var event_is_mouse_click: bool = (
+		event is InputEventMouseButton and
+		event.button_index == MOUSE_BUTTON_LEFT and
+		event.is_pressed()
+	)
 
+	if event_is_mouse_click:
+		queue_free()

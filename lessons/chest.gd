@@ -8,6 +8,8 @@ func _ready() -> void:
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)
 	canvas_group.material.set_shader_parameter("line_thickness", 3.0)
+	get_viewport().physics_object_picking_sort = true
+	get_viewport().physics_object_picking_first_only = true
 
 func set_outline_thickness(new_thickness: float) -> void:
 	canvas_group.material.set_shader_parameter("line_thickness", new_thickness)
@@ -62,4 +64,5 @@ func _spawn_random_item() -> void:
 	tween.tween_property(loot_item, "position:y", land_position.y - jump_height, HALF_FLIGHT_TIME)
 	tween.set_ease(Tween.EASE_IN)
 	tween.tween_property(loot_item, "position:y", land_position.y,  HALF_FLIGHT_TIME)
+
 	
